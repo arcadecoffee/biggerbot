@@ -1,4 +1,4 @@
-#1 BiggerBot
+# BiggerBot
 ## Summary
 This is a super simple SlackBot.  Really it is just an implementation of a couple of slash-commands intended to be attached to a Slack workspace.
 This is written in Python 3 and uses Flask.
