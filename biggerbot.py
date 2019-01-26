@@ -29,8 +29,7 @@ def is_request_valid(request):
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
-    text = request.values.get('text', '')
-    return '**' + text + '**'
+    return 'ok'
 
 
 @app.route('/ping', methods=['POST'])

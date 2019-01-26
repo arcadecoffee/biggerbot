@@ -15,7 +15,7 @@
             "README.md",
             "requirements.txt",
             "run_gunicorn.sh",
-            "zappa_settings.json",
+            "zappa_settings.json"
         ],
         "keep_warm": true,
         "keep_warm_expression": "rate(5 minutes)",
@@ -24,6 +24,6 @@
         "project_name": "biggerbot",
         "runtime": "python3.6",
         "s3_bucket": "bf-biggerbot-sandbox",
-        "timeout_seconds": 30,
+        "timeout_seconds": 30
     }
 }
