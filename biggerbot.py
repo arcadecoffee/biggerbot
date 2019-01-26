@@ -29,7 +29,8 @@ def is_request_valid(request):
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
-    return 'ok'
+    text = request.values.get('text', '')
+    return '**' + text + '**'
 
 
 @app.route('/ping', methods=['POST'])
@@ -48,8 +49,13 @@ def lunch():
     if not is_request_valid(request):
         abort(400)
 
+    url = os.environ['LUNCH_REQUEST_URL'] + '?day=' + \
+        request.values.get('text', '')
+    lunch_txt = requests.get(url).text
+    if lunch_txt == '':
+        lunch_txt = 'Got nothin\''
+    
     return jsonify(
             response_type='in_channel',
-            text='Today\'s Lunch:\n```\n' + \
-                    requests.get(os.environ['LUNCH_REQUEST_URL']).text + '```',
+            text='```' + lunch_txt + '```',
             )
