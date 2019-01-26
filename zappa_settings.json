@@ -1,0 +1,29 @@
+{
+    "dev": {
+        "app_function": "biggerbot.app",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "*.swp",
+            "__pycache__",
+            ".env",
+            ".git/*",
+            ".gitignore",
+            "python-version",
+            "LICENSE",
+            "Pipfile",
+            "Pipfile.lock",
+            "README.md",
+            "requirements.txt",
+            "run_gunicorn.sh",
+            "zappa_settings.json",
+        ],
+        "keep_warm": true,
+        "keep_warm_expression": "rate(5 minutes)",
+        "memory_size": 128,
+        "profile_name": "default",
+        "project_name": "biggerbot",
+        "runtime": "python3.6",
+        "s3_bucket": "bf-biggerbot-sandbox",
+        "timeout_seconds": 30,
+    }
+}
