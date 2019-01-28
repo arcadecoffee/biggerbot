@@ -48,8 +48,9 @@ def lunch():
     if not is_request_valid(request):
         abort(400)
 
-    url = os.environ['LUNCH_REQUEST_URL'] + '?day=' + \
-        request.values.get('text', '')
+    url = os.environ['LUNCH_REQUEST_URL']
+    if request.values.get('text'):
+        url = url + '?day=' + request.values.get('text') 
     lunch_txt = requests.get(url).text
     if lunch_txt == '':
         lunch_txt = 'Got nothin\''
